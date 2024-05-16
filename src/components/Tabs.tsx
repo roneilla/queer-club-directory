@@ -1,4 +1,3 @@
-import React from 'react';
 import { clubCategories } from '../directoryData';
 
 interface TabsProps {

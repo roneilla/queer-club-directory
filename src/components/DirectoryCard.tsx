@@ -1,6 +1,3 @@
-import React from 'react';
-import { ClubTags } from '../directoryData';
-
 interface DirectoryCardProps {
 	name: string;
 	description?: string;
