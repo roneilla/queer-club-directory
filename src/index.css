@@ -1,0 +1,54 @@
+@font-face {
+	font-family: 'PP Neue Montreal';
+	src: url('PPNeueMontreal-Medium.woff2') format('woff2'),
+		url('PPNeueMontreal-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'PP Neue Montreal';
+	src: url('PPNeueMontreal-Regular.woff2') format('woff2'),
+		url('PPNeueMontreal-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+* {
+	margin: 0;
+}
+
+a {
+	color: #646cff;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #535bf2;
+}
+
+body {
+	margin: 0;
+	color: #213547;
+	font-family: 'PP Neue Montreal', sans-serif;
+	background: #f0f0f0;
+}
+
+button {
+	font-family: 'PP Neue Montreal', sans-serif;
+}
+
+h1 {
+	font-size: 1.25rem;
+	margin: 0;
+}
+
+h3 {
+	font-weight: 500;
+}
+
+button {
+	border: none;
+}

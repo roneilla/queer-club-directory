@@ -1,0 +1,155 @@
+.page {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	min-height: 100dvh;
+}
+
+.card {
+	padding: 1rem;
+	flex: 1 1 30%;
+	background: #fff;
+	border-radius: 1rem;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+}
+
+.container {
+	padding: 1rem;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.header {
+	background: #fff;
+	width: 100%;
+}
+
+.navigation {
+	padding: 0.5rem 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.navItems {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
+.tabs {
+	display: flex;
+	align-items: flex-end;
+	gap: 0.25rem;
+	padding: 0 1rem;
+}
+
+.tabItem {
+	padding: 0.5rem;
+	border-radius: 0.5rem 0.5rem 0 0;
+	text-transform: capitalize;
+	cursor: pointer;
+}
+
+.tabItem:hover {
+	opacity: 0.8;
+	font-size: 1.025rem;
+	padding: 1.01rem;
+}
+
+.arts {
+	background: #e13538;
+}
+
+.entertainment {
+	background: #efa926;
+}
+
+.food {
+	background: #ffd954;
+}
+
+.outdoor {
+	background: #018b66;
+}
+
+.social {
+	background: #2d80d7;
+}
+
+.sports {
+	background: #9d61ea;
+}
+
+.all {
+	background: #f0f0f0;
+}
+
+.selected {
+	font-size: 1.025rem;
+	padding: 1.01rem;
+}
+
+.button {
+	background: #000;
+	color: #fff;
+	border-radius: 6px;
+	padding: 0.5rem 1rem;
+	font-weight: 500;
+}
+
+.button:hover {
+	color: #fff;
+	background: #535bf2;
+}
+
+.textButton {
+	color: #000;
+	background: none;
+	font-size: 1rem;
+	padding: 0.25rem 0.5rem;
+	cursor: pointer;
+}
+
+.textButton:hover {
+	background: none;
+	border: none;
+	color: #000;
+	background: #f0f0f0;
+	border-radius: 6px;
+}
+
+.cardTitle {
+	padding-bottom: 8px;
+	border-bottom: 1px solid #ccc;
+	width: 100%;
+}
+
+.description {
+	padding-top: 8px;
+	font-size: 0.9rem;
+	line-height: 150%;
+}
+
+.cardLink {
+	padding-top: 8px;
+	font-size: 0.9rem;
+}
+
+.badge {
+	background: #f0f0f0;
+	border-radius: 50px;
+	padding: 0.25rem 0.5rem;
+	font-size: 0.75rem;
+}
+
+.badgeGroup {
+	display: flex;
+	gap: 2px;
+	margin-top: 2px;
+}
