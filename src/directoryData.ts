@@ -32,6 +32,15 @@ export const directoryData = [
 		tags: 'Music',
 	},
 	{
+		name: 'Breakfast Cycling Club',
+		description:
+			'WED Social Ride 615am —25 km/hr avg\nWomen, Trans, Non Binary ride Mon 6pm\n🚴🏽🚴🏽‍♀️ 🏳️‍🌈🏳️‍⚧️🇵🇸\nAnti-Zionist, Anti-oppressive',
+		instagram: 'breakfastcycleclub',
+		website: '',
+		category: 'sports',
+		tags: 'Biking',
+	},
+	{
 		name: 'Butch/Femme Toronto',
 		description:
 			'Devoted to creating events and building community with and for Toronto’s femmes and butches',
@@ -82,6 +91,24 @@ export const directoryData = [
 		website: '',
 		category: 'entertainment',
 		tags: 'Movies',
+	},
+	{
+		name: 'NotsoAmazon Softball League',
+		description:
+			'Toronto softball for queer positive women, trans* & gender neutral individuals of all skill levels.',
+		instagram: 'notsoamazon',
+		website: 'http://www.notsoamazon.com/',
+		category: 'sports',
+		tags: 'Softball, League',
+	},
+	{
+		name: 'Queer Art Club Toronto',
+		description:
+			'Art Gallery Field Trips for Toronto Queers (18+)\nHosted by @meghansmusicstudio',
+		instagram: 'queerartclub_toronto',
+		website: '',
+		category: '',
+		tags: '',
 	},
 	{
 		name: 'Queer Art Crawl',
@@ -163,6 +190,15 @@ export const directoryData = [
 		tags: 'Crochet',
 	},
 	{
+		name: 'Queer Euchre',
+		description:
+			'We’re here! We’re queer! We’re gonna play some euchre!\n•\nAll genders',
+		instagram: 'queereuchre',
+		website: '',
+		category: 'games',
+		tags: 'Cards',
+	},
+	{
 		name: 'Queer Foodies TO',
 		description:
 			'Street Festivals, Restaurants,\nPotlucks & more for 2SLGBTQ folks in Toronto! 🏳️‍🌈🏳️‍⚧️',
@@ -199,6 +235,14 @@ export const directoryData = [
 		tags: 'Meet ups, Events',
 	},
 	{
+		name: 'Queer Music Jam Toronto',
+		description: 'A jam for women, NB and trans folx (ages 18+)',
+		instagram: 'queermusicjam',
+		website: 'https://sticksandpicks.com/queermusicjam/',
+		category: 'arts',
+		tags: 'Music',
+	},
+	{
 		name: 'Queer Photography Club',
 		description:
 			'A photography club for the 2SLGBTQIA+ community. Amateurs encouraged',
@@ -217,6 +261,14 @@ export const directoryData = [
 		tags: 'Pickleball',
 	},
 	{
+		name: 'Queer Pool Club',
+		description: '',
+		instagram: 'queerpoolclub.to',
+		website: '',
+		category: 'games',
+		tags: 'Pool',
+	},
+	{
 		name: 'Queer Run Club',
 		description:
 			'Toronto queers run for fun. chill vibes. not serious. Centering women, trans, NB folks✌️🏳️‍⚧️🏳️‍🌈',
@@ -224,6 +276,15 @@ export const directoryData = [
 		website: '',
 		category: 'sports',
 		tags: 'Run club',
+	},
+	{
+		name: 'Queer Skate Toronto',
+		description:
+			'A collective of skaters that aims to create safe spaces for queer people to learn and enjoy skateboarding in the Tkaronto area 🏳️‍🌈🏳️‍⚧️',
+		instagram: 'queerskatetoronto',
+		website: 'https://www.queerskatetoronto.com/',
+		category: 'sports',
+		tags: 'Skateboard',
 	},
 	{
 		name: 'Queer Sober Social',
@@ -260,12 +321,30 @@ export const directoryData = [
 		tags: 'Movies',
 	},
 	{
+		name: 'Queer Wine Night',
+		description:
+			'🏳️‍🌈The official Queer Wine Night for the 2SLGBTQIA+ community, currently held in Toronto🏳️‍⚧️\n❤️‍🔥🍷❤️‍🔥',
+		instagram: 'queerwinenight',
+		website: '',
+		category: 'food',
+		tags: 'Wine',
+	},
+	{
 		name: 'Queery',
 		description: 'trivia night for queer cuties 💞⛓️',
 		instagram: 'thisisqueery',
 		website: '',
 		category: 'games',
 		tags: 'Trivia night',
+	},
+	{
+		name: 'Rainbow Hoops TO',
+		description:
+			'Toronto’s only OBA-registered & officiated recreational queer women’s basketball league.',
+		instagram: 'rainbowhoopsto',
+		website: 'https://www.rainbowhoops.ca/register',
+		category: 'sports',
+		tags: 'Basketball',
 	},
 	{
 		name: 'sparQ Runners',
@@ -285,12 +364,39 @@ export const directoryData = [
 		tags: 'Dance, Lessons',
 	},
 	{
+		name: 'Toronto Downtown Fastpitch League',
+		description:
+			'A new high level fastpitch league for women, trans, and non-binary players. Wanna learn more?',
+		instagram: 'tdfl_fastpitch',
+		website: 'https://torontodowntownfastpitch.ca/',
+		category: 'sports',
+		tags: 'Softball, League',
+	},
+	{
 		name: 'Toronto Gay Pickleball',
 		description: '',
 		instagram: 'togaypickleball',
 		website: 'https://www.tgpa.ca/',
 		category: 'sports',
 		tags: 'Pickleball',
+	},
+	{
+		name: 'Toronto Queer Bike Polo',
+		description:
+			'Empowering women, trans men, non binary, gender non conforming, and all queer bike polo players 🌈\n✨✨✨New season starting soon ✨✨✨',
+		instagram: 'torontoqueerbikepolo',
+		website: '',
+		category: 'sports',
+		tags: 'Bike polo',
+	},
+	{
+		name: 'Toronto Queer Competitive Solo Napping Club',
+		description:
+			'This club is for queer folx in the GTA who love napping and want to meet other like minded folk serious about solo naps',
+		instagram: 'torontoqueernappers',
+		website: '',
+		category: 'social',
+		tags: 'Napping',
 	},
 	{
 		name: 'Toronto Queer Swim Club',
@@ -310,109 +416,66 @@ export const directoryData = [
 		tags: 'Dogs',
 	},
 	{
-		name: 'Queer Skate Toronto',
+		name: 'Chaotic Queer Dodgeball',
 		description:
-			'A collective of skaters that aims to create safe spaces for queer people to learn and enjoy skateboarding in the Tkaronto area 🏳️‍🌈🏳️‍⚧️',
-		instagram: 'queerskatetoronto',
-		website: 'https://www.queerskatetoronto.com/',
-		category: 'sports',
-		tags: 'Skateboard',
-	},
-	{
-		name: 'Queer Euchre',
-		description:
-			'We’re here! We’re queer! We’re gonna play some euchre!\n•\nAll genders',
-		instagram: 'queereuchre',
-		website: '',
-		category: 'games',
-		tags: 'Cards',
-	},
-	{
-		name: 'Toronto Queer Competitive Solo Napping Club',
-		description:
-			'This club is for queer folx in the GTA who love napping and want to meet other like minded folk serious about solo naps',
-		instagram: 'torontoqueernappers',
-		website: '',
-		category: 'social',
-		tags: 'Napping',
-	},
-	{
-		name: 'NotsoAmazon Softball League',
-		description:
-			'Toronto softball for queer positive women, trans* & gender neutral individuals of all skill levels.',
-		instagram: 'notsoamazon',
-		website: 'http://www.notsoamazon.com/',
-		category: 'sports',
-		tags: 'Softball, League',
-	},
-	{
-		name: 'Queer Pool Club',
-		description: '',
-		instagram: 'queerpoolclub.to',
-		website: '',
-		category: 'games',
-		tags: 'Pool',
-	},
-	{
-		name: 'Breakfast Cycling Club',
-		description:
-			'WED Social Ride 615am —25 km/hr avg\nWomen, Trans, Non Binary ride Mon 6pm\n🚴🏽🚴🏽‍♀️ 🏳️‍🌈🏳️‍⚧️🇵🇸\nAnti-Zionist, Anti-oppressive',
-		instagram: 'breakfastcycleclub',
+			'Drop-in Toronto dodgeball for queer folks that are marginalized genders on Wednesday nights 7-9p - It’s chaotic',
+		instagram: 'chaoticqueerdodgeball',
 		website: '',
 		category: 'sports',
-		tags: 'Biking',
+		tags: 'Dodgeball, Drop-in',
 	},
 	{
-		name: 'Toronto Queer Bike Polo',
+		name: 'sqwish',
 		description:
-			'Empowering women, trans men, non binary, gender non conforming, and all queer bike polo players 🌈\n✨✨✨New season starting soon ✨✨✨',
-		instagram: 'torontoqueerbikepolo',
+			'🏀 Toronto-based queer drop-in basketball night\n📍 Central Technical School\n⏰ Fridays 6-8PM\n👨‍👨‍👦 Run by @aminaformayor, @microsoft_orifice and @emmerek',
+		instagram: 'sqwishsqwish',
 		website: '',
 		category: 'sports',
-		tags: 'Bike polo',
+		tags: 'Basketball, Drop-in',
 	},
 	{
-		name: 'Queer Wine Night',
+		name: 'Toronto Purple Fins',
 		description:
-			'🏳️‍🌈The official Queer Wine Night for the 2SLGBTQIA+ community, currently held in Toronto🏳️‍⚧️\n❤️‍🔥🍷❤️‍🔥',
-		instagram: 'queerwinenight',
-		website: '',
-		category: 'food',
-		tags: 'Wine',
-	},
-	{
-		name: 'Toronto Downtown Fastpitch League',
-		description:
-			'A new high level fastpitch league for women, trans, and non-binary players. Wanna learn more?',
-		instagram: 'tdfl_fastpitch',
-		website: 'https://torontodowntownfastpitch.ca/',
+			'Gender Free Swim Club\nLeading 2STGNC+ Inclusion in Canadian Swimming\n🏳️‍⚧️ We Nurture Community & Promote Education\n2 Weekly Practices',
+		instagram: 'purplefinsto',
+		website: 'https://www.torontopurplefins.com/',
 		category: 'sports',
-		tags: 'Softball, League',
+		tags: 'Swimming',
 	},
 	{
-		name: 'Rainbow Hoops TO',
+		name: "Women's Hockey Club of Toronto",
 		description:
-			'Toronto’s only OBA-registered & officiated recreational queer women’s basketball league.',
-		instagram: 'rainbowhoopsto',
-		website: 'https://www.rainbowhoops.ca/register',
+			'Toronto’s trans and non-binary inclusive hockey league for queer and allied women. Since 1993.',
+		instagram: 'whctmosspark',
+		website: 'http://whct.ca/',
 		category: 'sports',
-		tags: 'Basketball',
+		tags: 'Hockey',
 	},
 	{
-		name: 'Queer Art Club Toronto',
+		name: 'Ok Dodgeball Club',
 		description:
-			'Art Gallery Field Trips for Toronto Queers (18+)\nHosted by @meghansmusicstudio',
-		instagram: 'queerartclub_toronto',
+			'74 Wellesley St. W Upper Gym | Doors @ 6:30\nA more competitive league for women, trans and non-binary folk who are pretty okay at dodgeball!',
+		instagram: 'ok_dodgeball_club',
 		website: '',
-		category: '',
-		tags: '',
+		category: 'sports',
+		tags: 'Dodgeball, League',
 	},
 	{
-		name: 'Queer Music Jam Toronto',
-		description: 'A jam for women, NB and trans folx (ages 18+)',
-		instagram: 'queermusicjam',
-		website: 'https://sticksandpicks.com/queermusicjam/',
-		category: 'arts',
-		tags: 'Music',
+		name: 'Pink Turf Soccer League',
+		description:
+			'Toronto’s adult non-profit women and trans soccer league - open to the 2SLGBTQ+ community & allies since 1985 🏳️‍🌈🏳️‍⚧️⚽️',
+		instagram: 'pinkturfsoccer',
+		website: 'https://www.pinkturfsoccer.com/',
+		category: 'sports',
+		tags: 'Soccer, League',
+	},
+	{
+		name: 'Flags of Glory Toronto 🏈',
+		description:
+			'Toronto’s Queer Flag football league welcoming all queer positive women, trans, and non-binary players. (18+)🏳️‍🌈 🏳️‍⚧️🌈',
+		instagram: 'flagsofgloryto',
+		website: 'http://flagsofglory.com/home/',
+		category: 'sports',
+		tags: 'Football, League',
 	},
 ];
