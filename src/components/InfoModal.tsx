@@ -49,7 +49,7 @@ const InfoModal = ({ toggleModal }: InfoModalProps) => {
 				<p>
 					Send me an email if you've got any feedback, questions, or feature
 					requests. I'm also open to collaborating or helping out clubs that
-					need design or development help.
+					need design or development.
 				</p>
 				<p>
 					Reach me at{' '}

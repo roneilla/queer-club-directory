@@ -6,7 +6,7 @@ const Navigation = () => {
 	const [showInfo, setShowInfo] = useState(false);
 	return (
 		<>
-			<div className="py-2 px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+			<div className="w-full bg-white py-2 px-4 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4">
 				<div className="flex items-center">
 					<img src={RainbowImg} className="w-6 mr-2" />
 					<h1 className="font-medium text-xl text-black ">
