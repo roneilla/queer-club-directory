@@ -1,14 +1,18 @@
 import { useState } from 'react';
 import InfoModal from './InfoModal';
+import RainbowImg from '../assets/rainbow-img.png';
 
 const Navigation = () => {
 	const [showInfo, setShowInfo] = useState(false);
 	return (
 		<>
 			<div className="py-2 px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-				<h1 className="font-medium text-xl text-black">
-					Queer Club Directory Toronto
-				</h1>
+				<div className="flex items-center">
+					<img src={RainbowImg} className="w-6 mr-2" />
+					<h1 className="font-medium text-xl text-black ">
+						Queer Club Directory Toronto
+					</h1>
+				</div>
 				<div className="flex gap-4 items-center">
 					<button
 						className="textButton font-medium transition-all"
