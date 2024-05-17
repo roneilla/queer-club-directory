@@ -15,7 +15,10 @@ const Tabs = ({ currentCategory, changeCategory }: TabsProps) => {
 							className={`font-medium tabItem text-black p-2 capitalize cursor-pointer hover:text-md hover:px-6 transition-all text-nowrap ${item} ${
 								item === currentCategory ? 'px-3 text-lg' : ''
 							}`}
-							onClick={() => changeCategory(item)}>
+							onClick={() => {
+								changeCategory(item);
+								window.scroll(0, 0);
+							}}>
 							{item === 'food' ? 'Food & Drink' : item}
 						</button>
 					</h2>
