@@ -48,8 +48,8 @@ const InfoModal = ({ toggleModal }: InfoModalProps) => {
 				<p className="font-medium">Let's chat!</p>
 				<p>
 					Send me an email if you've got any feedback, questions, or feature
-					requests. I'm also open to collaborating or helping out clubs that
-					need design or development.
+					requests. I'm also open to collaborating or volunteering for clubs
+					that need design or development.
 				</p>
 				<p>
 					Reach me at{' '}
