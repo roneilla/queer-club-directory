@@ -30,6 +30,7 @@ const DirectoryCard = ({ name, ...props }: DirectoryCardProps) => {
 				<div className="flex gap-2 flex-wrap">
 					{props?.instagram && (
 						<a
+							id={`ig-${props?.instagram}`}
 							className="mt-2 gap-1 items-center text-sm hover:bg-purple-100 hover:text-purple-800 text-purple-700 inline-flex px-1 py-0.5 rounded-full"
 							href={`https://www.instagram.com/${props?.instagram}/`}
 							target="_blank">
@@ -49,6 +50,7 @@ const DirectoryCard = ({ name, ...props }: DirectoryCardProps) => {
 						<a
 							className="mt-2 gap-1 items-center text-sm hover:bg-purple-100 hover:text-purple-800 text-purple-700 inline-flex px-1 py-0.5 rounded-full"
 							href={props?.website}
+							id={`web-${props?.instagram}`}
 							target="_blank">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
