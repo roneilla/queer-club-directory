@@ -478,4 +478,14 @@ export const directoryData = [
 		category: 'sports',
 		tags: 'Football, League',
 	},
+	{
+		name: 'Queer South Asian Women’s Network',
+		description:
+			'Hosts events virtually and in-person to connect and visibilize diasporic LGBTQ+ women, trans, & nonbinary South Asians',
+		instagram: 'qsawnetwork',
+		website: 'https://www.qsawnetwork.com',
+		category: 'social',
+		tags: 'Meet ups, Events',
+		dateAdded: '05-18-2024',
+	},
 ];
