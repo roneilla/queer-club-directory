@@ -15,14 +15,15 @@ const Navigation = () => {
 				</div>
 				<div className="flex gap-4 items-center">
 					<button
-						className="textButton font-medium transition-all"
-						onClick={() => setShowInfo(true)}>
+						className="infoModal textButton font-medium transition-all"
+						onClick={() => setShowInfo(true)}
+						id="infoModal">
 						Info
 					</button>
 					<a
 						href="mailto:roneillabumanlag@gmail.com"
 						target="_blank"
-						className="textButton font-medium transition-all">
+						className="nav-email textButton font-medium transition-all">
 						Email
 					</a>
 					<a

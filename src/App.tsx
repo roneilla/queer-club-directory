@@ -48,7 +48,7 @@ function App() {
 			</div>
 			<div className="w-full px-4 py-2 flex flex-col gap-2 sm:flex-row sm:justify-between text-sm">
 				<a
-					className="hover:underline flex items-center"
+					className="footer-email hover:underline flex items-center"
 					href="https://www.roneilla.com"
 					target="_blank">
 					Created by Roneilla Bumanlag
