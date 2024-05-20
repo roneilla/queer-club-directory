@@ -31,7 +31,7 @@ const DirectoryCard = ({ name, ...props }: DirectoryCardProps) => {
 					{props?.instagram && (
 						<a
 							id={`ig-${props?.instagram}`}
-							className={`web-${props?.instagram} mt-2 gap-1 items-center text-sm hover:bg-purple-100 hover:text-purple-800 text-purple-700 inline-flex px-1 py-0.5 rounded-full`}
+							className={`ig-${props?.instagram} mt-2 gap-1 items-center text-sm hover:bg-purple-100 hover:text-purple-800 text-purple-700 inline-flex px-1 py-0.5 rounded-full`}
 							href={`https://www.instagram.com/${props?.instagram}/`}
 							target="_blank">
 							<svg
