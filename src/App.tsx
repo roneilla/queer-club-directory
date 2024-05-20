@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Container from './components/Container';
 import DirectoryCard from './components/DirectoryCard';
@@ -8,6 +8,36 @@ import Tabs from './components/Tabs';
 
 function App() {
 	const [category, setCategory] = useState<string>('all');
+	const [tags, setTags] = useState<string[]>([]);
+	const [filterTags, setFilterTags] = useState<string[]>([]);
+
+	useEffect(() => {
+		setTags([]);
+
+		if (category === 'all') return;
+
+		const tagArr: string[] = [];
+
+		directoryData
+			.filter((item) => {
+				return category === item.category;
+			})
+			.map((item) => {
+				const splitTags = item?.tags?.split(', ');
+				tagArr.push(...splitTags);
+			});
+
+		console.log(tagArr);
+
+		const uniqueArr = Array.from(new Set(tagArr)).sort();
+		console.log(uniqueArr);
+
+		setTags(uniqueArr);
+	}, [category]);
+
+	const clearFilterTags = () => {
+		setFilterTags([]);
+	};
 
 	return (
 		<>
@@ -16,6 +46,35 @@ function App() {
 					<Navigation />
 					<Tabs currentCategory={category} changeCategory={setCategory} />
 				</div>
+				{tags.length > 0 && (
+					<Container>
+						<div className="w-full">
+							<h2 className="text-sm text-black">Filter by:</h2>
+						</div>
+						{tags?.map((tag) => (
+							<button
+								className={`p-2 bg-gray-100 hover:bg-gray-300 capitalize rounded-full m-0.5 text-sm ${
+									filterTags.includes(tag) ? 'bg-gray-400' : ''
+								}`}
+								onClick={() => {
+									if (filterTags.includes(tag)) {
+										setFilterTags([
+											...filterTags.filter((fTag) => fTag != tag),
+										]);
+									} else {
+										setFilterTags([...filterTags, tag]);
+									}
+								}}>
+								{tag}
+							</button>
+						))}
+						<button
+							className="p-2 font-medium text-black text-sm hover:underline"
+							onClick={clearFilterTags}>
+							Clear
+						</button>
+					</Container>
+				)}
 				<Container>
 					{directoryData
 						.sort((a, b) => {
@@ -32,7 +91,11 @@ function App() {
 						})
 						.filter((item) => {
 							if (category === 'all') return true;
-							return category === item.category;
+							if (filterTags.length === 0) return category === item.category;
+
+							const splitTags = item?.tags?.split(', ');
+
+							return filterTags.some((tag) => splitTags.includes(tag));
 						})
 						.map((item) => (
 							<DirectoryCard

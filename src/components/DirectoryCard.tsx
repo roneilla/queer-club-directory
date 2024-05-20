@@ -19,7 +19,7 @@ const DirectoryCard = ({ name, ...props }: DirectoryCardProps) => {
 						{splitTags?.map((tag) => (
 							<div
 								key={tag}
-								className="bg-gray-100 py-0.5 px-2 rounded-full text-xs">
+								className="bg-gray-100 py-0.5 px-2 rounded-full text-xs capitalize">
 								{tag}
 							</div>
 						))}
