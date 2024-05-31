@@ -191,7 +191,8 @@ export const directoryData = [
 	},
 	{
 		name: 'Queer Book Club Toronto',
-		description: '🌈 All the gays | Reading all the 📚',
+		description:
+			'🌈 All the gays | Reading all the 📚 \nNew members added a few times a year via a waitlist. Keep your eyes peeled for fun one-off events catered to the entire queer bookish community!',
 		instagram: 'queerbookclubto',
 		website: '',
 		category: 'entertainment',

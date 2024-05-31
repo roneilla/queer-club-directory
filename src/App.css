@@ -6,35 +6,35 @@
 }
 
 .tabItem {
-	border-radius: 0.5rem 0.5rem 0 0;
+	border-radius: 0.75rem 0.75rem 0 0;
 }
 
 .arts {
-	background: #f75154;
+	background: #ef4349;
 }
 
 .entertainment {
-	background: #efa926;
+	background: #f19020;
 }
 
 .food {
-	background: #ffd954;
+	background: #ffcb4c;
 }
 
 .games {
-	background: #1da262;
+	background: #6caa4b;
 }
 
 .outdoor {
-	background: #2d80d7;
+	background: #55a1d8;
 }
 
 .social {
-	background: #c099f1;
+	background: #bf6bde;
 }
 
 .sports {
-	background: #ec79a1;
+	background: #fb85c5;
 }
 
 .all {
@@ -98,5 +98,4 @@
 
 .modalTitle {
 	width: 100%;
-	border-bottom: 1px solid #ccc;
 }

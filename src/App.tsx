@@ -10,9 +10,12 @@ function App() {
 	const [category, setCategory] = useState<string>('all');
 	const [tags, setTags] = useState<string[]>([]);
 	const [filterTags, setFilterTags] = useState<string[]>([]);
+	const [showFilter, setShowFilter] = useState(false);
 
 	useEffect(() => {
+		clearFilterTags();
 		setTags([]);
+		setShowFilter(false);
 
 		if (category === 'all') return;
 
@@ -47,33 +50,54 @@ function App() {
 					<Tabs currentCategory={category} changeCategory={setCategory} />
 				</div>
 				{tags.length > 0 && (
-					<Container>
-						<div className="w-full">
-							<h2 className="text-sm text-black">Filter by:</h2>
-						</div>
-						{tags?.map((tag) => (
-							<button
-								className={`p-2 bg-gray-100 hover:bg-gray-300 capitalize rounded-full m-0.5 text-sm ${
-									filterTags.includes(tag) ? 'bg-gray-400' : ''
-								}`}
-								onClick={() => {
-									if (filterTags.includes(tag)) {
-										setFilterTags([
-											...filterTags.filter((fTag) => fTag != tag),
-										]);
-									} else {
-										setFilterTags([...filterTags, tag]);
-									}
-								}}>
-								{tag}
-							</button>
-						))}
+					<div className="w-full pb-2 px-8 lg:px-12">
 						<button
-							className="p-2 font-medium text-black text-sm hover:underline"
-							onClick={clearFilterTags}>
-							Clear
+							className="flex gap-2 items-center"
+							onClick={() => setShowFilter(!showFilter)}>
+							<p className="text-sm text-black monospace">More categories</p>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								strokeWidth={1.5}
+								stroke="black"
+								className="size-4">
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									d="m19.5 8.25-7.5 7.5-7.5-7.5"
+								/>
+							</svg>
 						</button>
-					</Container>
+						{showFilter && (
+							<>
+								{tags?.map((tag) => (
+									<button
+										className={`px-2 py-1 bg-gray-100 hover:bg-gray-300 capitalize rounded-full m-0.5 text-xs monospace ${
+											filterTags.includes(tag)
+												? 'bg-zinc-950 text-white  hover:bg-zinc-700'
+												: 'text-zinc-950'
+										}`}
+										onClick={() => {
+											if (filterTags.includes(tag)) {
+												setFilterTags([
+													...filterTags.filter((fTag) => fTag != tag),
+												]);
+											} else {
+												setFilterTags([...filterTags, tag]);
+											}
+										}}>
+										{tag}
+									</button>
+								))}
+								<button
+									className="p-2 font-medium text-black text-sm hover:underline"
+									onClick={clearFilterTags}>
+									Clear
+								</button>
+							</>
+						)}
+					</div>
 				)}
 				<Container>
 					{directoryData
