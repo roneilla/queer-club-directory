@@ -3,7 +3,7 @@ export default {
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		borderRadius: {
-			DEFAULT: '16px',
+			DEFAULT: '24px',
 			lg: '0.5rem',
 			full: '500px',
 		},
