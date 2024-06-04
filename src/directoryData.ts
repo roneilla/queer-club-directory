@@ -218,8 +218,7 @@ export const directoryData = [
 	},
 	{
 		name: 'Queer Ice Skating Club Toronto',
-		description:
-			'A group for queer people and friends to enjoy the outdoor ice rinks of the city of Toronto together',
+		description: `Recreational skating meetups at Toronto's outdoor ice rinks`,
 		instagram: 'queericeskatingtoronto',
 		website: '',
 		category: 'sports',
@@ -383,7 +382,7 @@ export const directoryData = [
 	{
 		name: 'Toronto Queer Bike Polo',
 		description:
-			'Empowering women, trans men, non binary, gender non conforming, and all queer bike polo players 🌈\n✨✨✨New season starting soon ✨✨✨',
+			'A space for queer folks to learn and practice hardcourt bike polo',
 		instagram: 'torontoqueerbikepolo',
 		website: '',
 		category: 'sports',
