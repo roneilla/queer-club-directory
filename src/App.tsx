@@ -30,10 +30,7 @@ function App() {
 				tagArr.push(...splitTags);
 			});
 
-		console.log(tagArr);
-
 		const uniqueArr = Array.from(new Set(tagArr)).sort();
-		console.log(uniqueArr);
 
 		setTags(uniqueArr);
 	}, [category]);
