@@ -67,17 +67,17 @@ const InfoModal = ({ toggleModal }: InfoModalProps) => {
 				</div>
 
 				<p className="mt-2">
-					Send me an email if you've got any feedback, questions, or feature
-					requests. I'm also open to collaborating or volunteering for clubs
-					that need design or development.
+					Send us an email if you've got any feedback, questions, or feature
+					requests. Also open to collaborating or volunteering for clubs that
+					need design or development.
 				</p>
 				<p>
 					Reach me at{' '}
 					<a
 						className="text-purple-600	hover:text-purple-800"
-						href="mailto:roneillabumanlag@gmail.com"
+						href="mailto:queerclubdirectory@gmail.com"
 						target="_blank">
-						roneillabumanlag@gmail.com
+						queerclubdirectory@gmail.com
 					</a>
 				</p>
 			</div>
