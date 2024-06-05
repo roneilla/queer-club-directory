@@ -11,10 +11,12 @@ function App() {
 	const [tags, setTags] = useState<string[]>([]);
 	const [filterTags, setFilterTags] = useState<string[]>([]);
 	const [showFilter, setShowFilter] = useState(false);
+	const [search, setSearch] = useState<string>('');
 
 	useEffect(() => {
 		clearFilterTags();
 		setTags([]);
+		setSearch('');
 		setShowFilter(false);
 
 		if (category === 'all') return;
@@ -46,6 +48,19 @@ function App() {
 					<Navigation />
 					<Tabs currentCategory={category} changeCategory={setCategory} />
 				</div>
+				{category === 'search' && (
+					<div className="p-4 w-full">
+						<input
+							className="text-lg rounded-full px-4 py-2 w-full"
+							type="text"
+							onChange={(e) => setSearch(e.target.value)}
+							value={search}
+							name="search"
+							id="search"
+							placeholder="Search here..."
+						/>
+					</div>
+				)}
 				{tags.length > 0 && (
 					<div className="w-full pb-2 px-8 lg:px-12">
 						<button
@@ -111,6 +126,17 @@ function App() {
 							return 0;
 						})
 						.filter((item) => {
+							if (category === 'search' && search) {
+								return (
+									item.category.toLowerCase().includes(search.toLowerCase()) ||
+									item.name.toLowerCase().includes(search.toLowerCase()) ||
+									item.description
+										.toLowerCase()
+										.includes(search.toLowerCase()) ||
+									item.tags.toLowerCase().includes(search.toLowerCase())
+								);
+							}
+
 							if (category === 'all') return true;
 							if (filterTags.length === 0) return category === item.category;
 
@@ -130,7 +156,10 @@ function App() {
 						))}
 				</Container>
 			</div>
-			<div className="w-full px-4 py-2 flex flex-col gap-2 sm:flex-row sm:justify-between text-sm">
+			<div
+				className={`${
+					category === 'all' ? 'text-white' : 'text-black'
+				} ${category} w-full px-4 py-2 flex flex-col gap-2 sm:flex-row sm:justify-between text-sm`}>
 				<a
 					className="footer-email hover:underline flex items-center"
 					href="https://www.roneilla.com"
