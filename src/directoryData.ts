@@ -38,7 +38,7 @@ export const directoryData = [
 	{
 		name: 'Breakfast Cycling Club',
 		description:
-			'WED Social Ride 615am —25 km/hr avg\nWomen, Trans, Non Binary ride Mon 6pm\n🚴🏽🚴🏽‍♀️ 🏳️‍🌈🏳️‍⚧️🇵🇸\nAnti-Zionist, Anti-oppressive',
+			'WED Social Ride 615am —25 km/hr avg\nWomen, Trans, Non-Binary ride Mon 6pm\n🚴🏽🚴🏽‍♀️ 🏳️‍🌈🏳️‍⚧️🇵🇸\nAnti-Zionist, Anti-oppressive',
 		instagram: 'breakfastcycleclub',
 		website: '',
 		category: 'sports',
@@ -76,7 +76,7 @@ export const directoryData = [
 	{
 		name: 'Field of Dreamers Cooperative Softball Association',
 		description:
-			"We're a small-scale cooperative softball league prioritizing queer, nonbinary, and lefty communities in Toronto 🌈 🥎",
+			"We're a small-scale cooperative softball league prioritizing queer, non-binary, and lefty communities in Toronto 🌈 🥎",
 		instagram: 'fieldofdreamerssoftball',
 		website: 'https://fieldofdreamers.org/',
 		category: 'sports',
@@ -688,7 +688,7 @@ export const directoryData = [
 	{
 		name: 'Queer South Asian Women’s Network',
 		description:
-			'Hosts events virtually and in-person to connect and visibilize diasporic LGBTQ+ women, trans, & nonbinary South Asians',
+			'Hosts events virtually and in-person to connect and visibilize diasporic LGBTQ+ women, trans, & non-binary South Asians',
 		instagram: 'qsawnetwork',
 		website: 'https://www.qsawnetwork.com',
 		category: 'social',
