@@ -12,6 +12,7 @@ function App() {
 	const [filterTags, setFilterTags] = useState<string[]>([]);
 	const [showFilter, setShowFilter] = useState(false);
 	const [search, setSearch] = useState<string>('');
+	const [stopTyping, setStopTyping] = useState(false);
 
 	useEffect(() => {
 		clearFilterTags();
@@ -37,8 +38,24 @@ function App() {
 		setTags(uniqueArr);
 	}, [category]);
 
+	useEffect(() => {
+		const delayDebounceFn = setTimeout(() => {
+			window.dataLayer.push({
+				event: 'search',
+				query: search,
+			});
+			console.log('send search');
+		}, 3000);
+
+		return () => clearTimeout(delayDebounceFn);
+	}, [search]);
+
 	const clearFilterTags = () => {
 		setFilterTags([]);
+	};
+
+	const handleSearch = (query: string) => {
+		setSearch(query);
 	};
 
 	return (
@@ -53,7 +70,7 @@ function App() {
 						<input
 							className="text-lg rounded-full px-4 py-2 w-full"
 							type="text"
-							onChange={(e) => setSearch(e.target.value)}
+							onChange={(e) => handleSearch(e.target.value)}
 							value={search}
 							name="search"
 							id="search"
