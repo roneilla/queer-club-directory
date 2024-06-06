@@ -12,7 +12,6 @@ function App() {
 	const [filterTags, setFilterTags] = useState<string[]>([]);
 	const [showFilter, setShowFilter] = useState(false);
 	const [search, setSearch] = useState<string>('');
-	const [stopTyping, setStopTyping] = useState(false);
 
 	useEffect(() => {
 		clearFilterTags();
