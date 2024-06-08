@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .page {
 	display: flex;
 	flex-direction: column;
@@ -98,4 +102,20 @@
 
 .modalTitle {
 	width: 100%;
+}
+
+.navItem {
+	@apply textButton font-medium transition-all;
+}
+
+.primaryBtn {
+	@apply bg-gray-900 text-white rounded-lg py-1 px-2 font-medium hover:bg-gray-700 flex items-center transition-all;
+}
+
+.tagItem {
+	@apply px-2 py-1 bg-gray-100 hover:bg-gray-300 capitalize rounded-full m-0.5 text-xs;
+}
+
+.tagClear {
+	@apply p-2 font-medium text-black text-sm hover:underline;
 }

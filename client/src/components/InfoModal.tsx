@@ -75,9 +75,9 @@ const InfoModal = ({ toggleModal }: InfoModalProps) => {
 					Reach me at{' '}
 					<a
 						className="text-purple-600	hover:text-purple-800"
-						href="mailto:roneillabumanlag@gmail.com"
+						href="mailto:queerclubdirectory@gmail.com"
 						target="_blank">
-						roneillabumanlag@gmail.com
+						queerclubdirectory@gmail.com
 					</a>
 				</p>
 			</div>

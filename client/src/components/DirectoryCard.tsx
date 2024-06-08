@@ -1,14 +1,16 @@
+import { Subcategories } from '../App';
+
 interface DirectoryCardProps {
 	name: string;
 	description?: string;
 	instagram?: string;
 	category?: string;
-	tags?: string;
+	subcategories?: Subcategories[];
 	website?: string;
 }
 
 const DirectoryCard = ({ name, ...props }: DirectoryCardProps) => {
-	const splitTags = props?.tags?.split(',');
+	// const splitTags = props?.tags?.split(',');
 
 	return (
 		<div className="p-4 sm:basis-1/2 lg:basis-2/6 w-full text-zinc-950">
@@ -16,7 +18,7 @@ const DirectoryCard = ({ name, ...props }: DirectoryCardProps) => {
 				<div className="flex-1">
 					<div className="pb-2 w-full border-b border-solid border-zinc-100">
 						<h3 className="text-lg leading-6 font-medium">{name}</h3>
-						<div className="flex gap-1 mt-1">
+						{/* <div className="flex gap-1 mt-1">
 							{splitTags?.map((tag) => (
 								<div
 									key={tag}
@@ -24,7 +26,7 @@ const DirectoryCard = ({ name, ...props }: DirectoryCardProps) => {
 									{tag}
 								</div>
 							))}
-						</div>
+						</div> */}
 					</div>
 
 					{props?.description && (

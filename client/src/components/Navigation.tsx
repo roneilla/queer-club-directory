@@ -9,27 +9,27 @@ const Navigation = () => {
 			<div className="w-full bg-white py-2 px-4 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4">
 				<div className="flex items-center">
 					<img src={RainbowImg} className="w-6 mr-2" />
-					<h1 className="font-medium text-xl text-black ">
+					<h1 className="font-medium text-xl text-black">
 						Queer Club Directory Toronto
 					</h1>
 				</div>
 				<div className="flex gap-4 items-center">
 					<button
-						className="infoModal textButton font-medium transition-all"
+						className="navItem"
 						onClick={() => setShowInfo(true)}
 						id="infoModal">
 						Info
 					</button>
 					<a
-						href="mailto:roneillabumanlag@gmail.com"
+						href="mailto:queerclubdirectory@gmail.com"
 						target="_blank"
-						className="nav-email textButton font-medium transition-all">
+						className="navItem">
 						Email
 					</a>
 					<a
 						href="https://docs.google.com/forms/d/e/1FAIpQLSdGiIS0ytB8ifjNc8MRdkiFbvEEqFfnCMjvtvqNo-FEIqGWGw/viewform?usp=sf_link"
 						target="_blank"
-						className="bg-gray-900 text-white rounded-lg py-1 px-2 font-medium hover:bg-gray-700 flex items-center transition-all">
+						className="primaryBtn">
 						Add a club
 						<svg
 							xmlns="http://www.w3.org/2000/svg"

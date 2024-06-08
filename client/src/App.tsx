@@ -3,14 +3,27 @@ import './App.css';
 import Container from './components/Container';
 import DirectoryCard from './components/DirectoryCard';
 import Navigation from './components/Navigation';
-import { directoryData } from './directoryData';
 import Tabs from './components/Tabs';
+
+export interface Subcategories {
+	name: string;
+}
+
+interface DirectoryItem {
+	name: string;
+	instagram: string;
+	category: string;
+	website?: string;
+	description?: string;
+	subcategories: Subcategories[];
+}
 
 function App() {
 	const [category, setCategory] = useState<string>('all');
 	const [tags, setTags] = useState<string[]>([]);
 	const [filterTags, setFilterTags] = useState<string[]>([]);
 	const [showFilter, setShowFilter] = useState(false);
+	const [directoryData, setDirectoryData] = useState<DirectoryItem[]>([]);
 
 	useEffect(() => {
 		clearFilterTags();
@@ -21,14 +34,12 @@ function App() {
 
 		const tagArr: string[] = [];
 
-		directoryData
-			.filter((item) => {
-				return category === item.category;
-			})
-			.map((item) => {
-				const splitTags = item?.tags?.split(', ');
-				tagArr.push(...splitTags);
-			});
+		directoryData.filter((item) => {
+			return category === item.category;
+		});
+		// .map((item) => {
+		// 	tagArr.push(...item.subcategories);
+		// });
 
 		const uniqueArr = Array.from(new Set(tagArr)).sort();
 
@@ -39,6 +50,17 @@ function App() {
 		setFilterTags([]);
 	};
 
+	useEffect(() => {
+		const getClubs = async () => {
+			const response = await fetch(`/api/clubs/getClubs`);
+			const res = await response.json();
+
+			setDirectoryData(res);
+		};
+
+		getClubs();
+	}, []);
+
 	return (
 		<>
 			<div className={`page ${category}`}>
@@ -46,6 +68,7 @@ function App() {
 					<Navigation />
 					<Tabs currentCategory={category} changeCategory={setCategory} />
 				</div>
+
 				{tags.length > 0 && (
 					<div className="w-full pb-2 px-8 lg:px-12">
 						<button
@@ -70,7 +93,7 @@ function App() {
 							<>
 								{tags?.map((tag) => (
 									<button
-										className={`px-2 py-1 bg-gray-100 hover:bg-gray-300 capitalize rounded-full m-0.5 text-xs monospace ${
+										className={`tagItem monospace ${
 											filterTags.includes(tag)
 												? 'bg-zinc-950 text-white  hover:bg-zinc-700'
 												: 'text-zinc-950'
@@ -87,9 +110,7 @@ function App() {
 										{tag}
 									</button>
 								))}
-								<button
-									className="p-2 font-medium text-black text-sm hover:underline"
-									onClick={clearFilterTags}>
+								<button className="tagClear" onClick={clearFilterTags}>
 									Clear
 								</button>
 							</>
@@ -114,9 +135,7 @@ function App() {
 							if (category === 'all') return true;
 							if (filterTags.length === 0) return category === item.category;
 
-							const splitTags = item?.tags?.split(', ');
-
-							return filterTags.some((tag) => splitTags.includes(tag));
+							// return filterTags.some((tag) => item.subcategories.includes(tag));
 						})
 						.map((item) => (
 							<DirectoryCard
@@ -124,7 +143,7 @@ function App() {
 								name={item.name}
 								description={item.description}
 								instagram={item.instagram}
-								tags={item.tags}
+								subcategories={item.subcategories}
 								website={item.website}
 							/>
 						))}
