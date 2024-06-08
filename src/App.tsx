@@ -34,12 +34,15 @@ function App() {
 
 		const tagArr: string[] = [];
 
-		directoryData.filter((item) => {
-			return category === item.category;
-		});
-		// .map((item) => {
-		// 	tagArr.push(...item.subcategories);
-		// });
+		directoryData
+			.filter((item) => {
+				return category === item.category;
+			})
+			.map((item) => {
+				const subItems = item.subcategories.map((subc) => subc.name);
+
+				tagArr.push(...subItems);
+			});
 
 		const uniqueArr = Array.from(new Set(tagArr)).sort();
 
@@ -135,7 +138,9 @@ function App() {
 							if (category === 'all') return true;
 							if (filterTags.length === 0) return category === item.category;
 
-							// return filterTags.some((tag) => item.subcategories.includes(tag));
+							const subItems = item.subcategories.map((subc) => subc.name);
+
+							return filterTags.some((tag) => subItems.includes(tag));
 						})
 						.map((item) => (
 							<DirectoryCard
