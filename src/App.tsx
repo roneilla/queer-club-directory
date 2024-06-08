@@ -52,7 +52,7 @@ function App() {
 
 	useEffect(() => {
 		const getClubs = async () => {
-			const response = await fetch(`/api/clubs/getClubs`);
+			const response = await fetch(`/.netlify/functions/getClubs`);
 			const res = await response.json();
 
 			setDirectoryData(res);
