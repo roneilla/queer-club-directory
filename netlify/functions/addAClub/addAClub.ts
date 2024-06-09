@@ -13,7 +13,6 @@ export const handler: Handler = async (event, context) => {
 		// Add the task to the database
 		const result = await collection.insertOne(club);
 
-		// Return a 200 response if the operation succeeded
 		return {
 			statusCode: 200,
 			body: JSON.stringify({ ...club, _id: result.insertedId }),

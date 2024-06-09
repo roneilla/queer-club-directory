@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import { clubCategories } from '../directoryData';
+import { useState } from 'react';
 import TadaEmoji from '../assets/tada-emoji.png';
-import DirectoryCard from '../components/DirectoryCard';
 
 const AddAClub = () => {
 	const [sent, setSent] = useState(false);

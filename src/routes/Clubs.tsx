@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Skeleton from '../components/Skeleton';
 import DirectoryCard from '../components/DirectoryCard';
 import Tabs from '../components/Tabs';

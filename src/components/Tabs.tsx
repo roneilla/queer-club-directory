@@ -12,8 +12,8 @@ const Tabs = ({ currentCategory, changeCategory }: TabsProps) => {
 				{clubCategories.sort().map((item) => (
 					<h2 key={item}>
 						<button
-							className={`font-medium tabItem text-black py-1.5 px-4 capitalize cursor-pointer hover:text-base hover:px-6 transition-all text-nowrap ${item} ${
-								item === currentCategory ? 'text-lg' : ''
+							className={`font-medium tabItem text-black py-1.5 px-4 capitalize cursor-pointer text-base hover:px-6 transition-all text-nowrap ${item} ${
+								item === currentCategory ? 'text-lg py-2' : ''
 							}`}
 							onClick={() => {
 								changeCategory(item);
