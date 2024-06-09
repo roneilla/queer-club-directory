@@ -1,8 +1,14 @@
-.page {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.body {
 	min-height: 100dvh;
+	@apply flex flex-col;
+}
+
+.page {
+	@apply flex flex-col items-start flex-1;
 }
 
 .tabItem {
@@ -42,7 +48,7 @@
 }
 
 .tabItem.all {
-	color: #fff;
+	@apply text-white;
 }
 
 .textButton {
@@ -98,4 +104,36 @@
 
 .modalTitle {
 	width: 100%;
+}
+
+.navItem {
+	@apply textButton font-medium transition-all;
+}
+
+.primaryBtn {
+	@apply bg-gray-900 text-white rounded-lg py-1 px-2 font-medium hover:bg-gray-700 flex items-center transition-all;
+}
+
+.tagItem {
+	@apply px-2 py-1 bg-gray-100 hover:bg-gray-300 capitalize rounded-full m-0.5 text-xs;
+}
+
+.tagClear {
+	@apply p-2 font-medium text-black text-sm hover:underline;
+}
+
+.iconBtn {
+	@apply hover:bg-zinc-200 rounded-full p-2;
+}
+
+.field {
+	@apply border-zinc-200 border-solid border px-2 py-1 rounded-sm min-w-80;
+}
+
+.fieldGroup {
+	@apply flex flex-col;
+}
+
+.fieldGroup label {
+	@apply text-sm pb-1;
 }
