@@ -1,4 +1,4 @@
-import { Subcategories } from '../App';
+import { Subcategories } from '../routes/Clubs';
 
 interface DirectoryCardProps {
 	name: string;

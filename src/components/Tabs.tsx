@@ -7,13 +7,13 @@ interface TabsProps {
 
 const Tabs = ({ currentCategory, changeCategory }: TabsProps) => {
 	return (
-		<div className="w-full bg-white sm:pt-2">
-			<div className="flex items-end overflow-scroll px-4 gap-1">
+		<div className="w-full bg-white pt-4">
+			<div className="flex items-end overflow-scroll px-8 gap-1">
 				{clubCategories.sort().map((item) => (
 					<h2 key={item}>
 						<button
-							className={`font-medium tabItem text-black py-1 px-2 capitalize cursor-pointer hover:text-md hover:px-6 transition-all text-nowrap ${item} ${
-								item === currentCategory ? 'px-3 text-lg' : ''
+							className={`font-medium tabItem text-black py-1.5 px-4 capitalize cursor-pointer hover:text-base hover:px-6 transition-all text-nowrap ${item} ${
+								item === currentCategory ? 'text-lg' : ''
 							}`}
 							onClick={() => {
 								changeCategory(item);

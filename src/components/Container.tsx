@@ -6,8 +6,10 @@ interface ContainerProps {
 
 const Container = ({ children }: ContainerProps) => {
 	return (
-		<div className="w-full pb-4 px-4 lg:px-8 h-full flex flex-wrap">
-			{children}
+		<div className="flex-1 w-full">
+			<div className="w-full pb-4 px-4 lg:px-8 h-full flex flex-wrap">
+				{children}
+			</div>
 		</div>
 	);
 };
