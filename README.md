@@ -10,13 +10,13 @@ Contact us: [queerclubdirectory@gmail.com](mailto:queerclubdirectory@gmail.com)
 
 ## Tech stack
 
-- React (Vite)
+- React (Vite) + TypeScript
 - TailwindCSS
 - MongoDB
 - Netlify
 
 ## Releases
-w
+
 ### June 8 2024
 
 These improvements are part of the preparation for upcoming feature of events calendar!
