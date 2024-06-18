@@ -3,6 +3,7 @@ import Skeleton from '../components/Skeleton';
 import DirectoryCard from '../components/DirectoryCard';
 import Tabs from '../components/Tabs';
 import Container from '../components/Container';
+import MainNav from '../components/MainNav';
 
 export interface Subcategories {
 	name: string;
@@ -69,9 +70,10 @@ const Clubs = () => {
 
 	return (
 		<>
-			<div className="bg-white">
+			<MainNav />
+			{/* <div className="bg-white">
 				<h1 className="text-3xl px-8 pb-4">Find a queer club in Toronto.</h1>
-			</div>
+			</div> */}
 			<div className={`page ${category}`}>
 				<div className="sticky top-0 w-full">
 					<Tabs currentCategory={category} changeCategory={setCategory} />

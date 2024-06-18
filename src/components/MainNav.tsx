@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 
 const MainNav = () => {
-	let location = useLocation().pathname;
+	const location = useLocation().pathname;
 
 	return (
 		<div className="w-full px-8 py-4 flex gap-8">

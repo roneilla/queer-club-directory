@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import InfoModal from './InfoModal';
 import Logo from '../assets/logo.png';
 import { Link, useLocation } from 'react-router-dom';
@@ -7,10 +7,26 @@ const Navigation = () => {
 	const [showInfo, setShowInfo] = useState(false);
 	const [openMenu, setOpenMenu] = useState(false);
 	const location = useLocation().pathname;
+	const [openAdd, setOpenAdd] = useState(false);
+	const ref = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		setOpenMenu(false);
+		setOpenAdd(false);
 	}, [location]);
+
+	const handleClickOutside = (e: any) => {
+		if (ref.current && !ref.current.contains(e.target)) {
+			setOpenAdd(false);
+		}
+	};
+
+	useEffect(() => {
+		document.addEventListener('click', handleClickOutside, true);
+		return () => {
+			document.removeEventListener('click', handleClickOutside, true);
+		};
+	}, []);
 
 	return (
 		<>
@@ -34,9 +50,34 @@ const Navigation = () => {
 						className="navItem">
 						Contact us
 					</a>
-					<Link to="add" className="navItem">
-						Add a club
-					</Link>
+					<div className="relative" ref={ref}>
+						<button className="" onClick={() => setOpenAdd(true)}>
+							Add{' '}
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								strokeWidth={1.5}
+								stroke="currentColor"
+								className="size-4 inline-block">
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									d="m19.5 8.25-7.5 7.5-7.5-7.5"
+								/>
+							</svg>
+						</button>
+						{openAdd && (
+							<div className="absolute top-8 custom-shadow right-0 flex flex-col w-32 border border-solid border-zinc-200 rounded-lg">
+								<Link to="add-club" className="navItem">
+									Add a club
+								</Link>
+								<Link to="add-event" className="navItem">
+									Add an event
+								</Link>
+							</div>
+						)}
+					</div>
 				</div>
 				<button className="iconBtn sm:hidden" onClick={() => setOpenMenu(true)}>
 					<svg
@@ -92,7 +133,7 @@ const Navigation = () => {
 							className="navItem">
 							Contact us
 						</a>
-						<Link to="add" className="navItem">
+						<Link to="add-club" className="navItem">
 							Add a club
 						</Link>
 					</div>
