@@ -8,3 +8,15 @@ export const clubCategories = [
 	'games',
 	'party',
 ];
+
+export const commonTags = [
+	'biking',
+	'running',
+	'food crawl',
+	'party',
+	'softball',
+	'climbing',
+	'game night',
+	'movies',
+	'drag brunch',
+];

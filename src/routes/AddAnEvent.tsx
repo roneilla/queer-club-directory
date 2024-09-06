@@ -2,6 +2,7 @@ import { useState } from 'react';
 import TadaEmoji from '../assets/tada-emoji.png';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
+import { commonTags } from '../directoryData';
 
 const AddAnEvent = () => {
 	const [sent, setSent] = useState(false);
@@ -17,6 +18,7 @@ const AddAnEvent = () => {
 	const [dropin, setDropin] = useState(false);
 	const [tickets, setTickets] = useState('');
 	const [rsvp, setRsvp] = useState('');
+	const [customSub, setCustomSub] = useState('');
 
 	const categoryOpts = [
 		'entertainment',
@@ -44,7 +46,7 @@ const AddAnEvent = () => {
 				moreInfo: moreInfo,
 				clubIg: clubIg,
 				eventCategory: eventCategory,
-				eventSub: eventSub,
+				eventSub: eventSub === 'other' ? customSub : eventSub,
 				dropin: dropin,
 				tickets: tickets,
 				rsvp: rsvp,
@@ -146,6 +148,38 @@ const AddAnEvent = () => {
 								</select>
 							</div>
 							<div className="fieldGroup">
+								<label htmlFor="eventSub">
+									What is the main activity of this event?
+								</label>
+								<select
+									className="field"
+									name="eventSub"
+									id="eventSub"
+									onChange={(e) => setEventSub(e.target.value)}
+									value={eventSub}>
+									{commonTags.sort().map((cat) => (
+										<option value={cat}>{cat}</option>
+									))}
+									<option value="other">Other</option>
+								</select>
+
+								{eventSub === 'other' && (
+									<>
+										<label className="mt-4" htmlFor="customSob">
+											If other, please specify
+										</label>
+										<input
+											className="field"
+											type="text"
+											id="customSob"
+											name="customSob"
+											onChange={(e) => setCustomSub(e.target.value)}
+											value={customSub}
+										/>
+									</>
+								)}
+							</div>
+							<div className="fieldGroup">
 								<label htmlFor="location">Where</label>
 								<input
 									className="field"
@@ -176,6 +210,35 @@ const AddAnEvent = () => {
 									onChange={(e) => setTime(e.target.value)}
 									value={time}
 								/>
+							</div>
+							<div>
+								<p>Is this a drop-in event?</p>
+								<div className="flex gap-2">
+									<div>
+										<input
+											className="mr-2"
+											type="radio"
+											name="topping"
+											value="yes"
+											id="yes"
+											checked={dropin === true}
+											onChange={() => setDropin(true)}
+										/>
+										<label htmlFor="yes">Yes</label>
+									</div>
+								</div>
+								<div>
+									<input
+										className="mr-2"
+										type="radio"
+										name="topping"
+										value="no"
+										id="no"
+										checked={dropin === false}
+										onChange={() => setDropin(false)}
+									/>
+									<label htmlFor="no">No</label>
+								</div>
 							</div>
 							<div className="fieldGroup">
 								<label htmlFor="tickets">
