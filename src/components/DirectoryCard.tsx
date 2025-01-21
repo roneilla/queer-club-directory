@@ -11,31 +11,29 @@ interface DirectoryCardProps {
 
 const DirectoryCard = ({ name, ...props }: DirectoryCardProps) => {
 	return (
-		<div className="p-4 sm:basis-1/2 lg:basis-2/6 w-full text-zinc-950">
-			<div className="p-4 bg-white rounded h-full flex flex-col">
+		<div className="p-4 sm:basis-1/2 lg:basis-2/6 w-full">
+			<div className="p-4 bg-white border border-gray-200 rounded h-full flex flex-col">
 				<div className="flex-1">
-					<div className="pb-2 w-full border-b border-solid border-zinc-100">
-						<h3 className="text-lg leading-6 font-medium">{name}</h3>
-						<div className="flex gap-1 mt-1">
-							{props?.subcategories?.map((tag) => (
-								<div
-									key={tag.name}
-									className="bg-zinc-100 py-0.5 px-2 rounded-full text-xs capitalize monospace text-zinc-900">
-									{tag.name}
-								</div>
-							))}
-						</div>
+					<h3 className="text-lg leading-6 font-medium">{name}</h3>
+					<div className="flex gap-1 mt-1">
+						{props?.subcategories?.map((tag) => (
+							<div
+								key={tag.name}
+								className="bg-gray-100 py-0.5 px-2 rounded-full text-xs capitalize monospace">
+								{tag.name}
+							</div>
+						))}
 					</div>
 
 					{props?.description && (
-						<p className="pt-2 text-sm text-zinc-950">{props?.description}</p>
+						<p className="pt-4 text-sm text-black">{props?.description}</p>
 					)}
 				</div>
 				<div className="flex flex-col items-start mt-2 -ml-1">
 					{props?.instagram && (
 						<a
 							id={`ig-${props?.instagram}`}
-							className={`ig-${props?.instagram} gap-1 items-center text-sm  hover:bg-zinc-200 text-zinc-950 inline-flex px-1 py-0.5 rounded-full`}
+							className={`ig-${props?.instagram} gap-1 items-center text-sm  hover:bg-gray-200 inline-flex px-1 py-0.5 rounded-full`}
 							href={`https://www.instagram.com/${props?.instagram}/`}
 							target="_blank">
 							<svg
@@ -52,7 +50,7 @@ const DirectoryCard = ({ name, ...props }: DirectoryCardProps) => {
 
 					{props?.website && (
 						<a
-							className={`web-${props?.instagram} gap-1 items-center text-sm hover:bg-zinc-200 text-zinc-950 inline-flex px-1 py-0.5 rounded-full`}
+							className={`web-${props?.instagram} gap-1 items-center text-sm hover:bg-gray-200 inline-flex px-1 py-0.5 rounded-full`}
 							href={props?.website}
 							id={`web-${props?.instagram}`}
 							target="_blank">

@@ -1,7 +1,7 @@
 import { Handler } from '@netlify/functions';
 import getConnection from '../../../lib';
 
-export const handler: Handler = async (event, context) => {
+export const handler: Handler = async () => {
 	try {
 		const client = await getConnection();
 		const database = client.db(process.env.MONGODB_DATABASE);

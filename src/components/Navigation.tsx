@@ -14,7 +14,7 @@ const Navigation = () => {
 
 	return (
 		<>
-			<div className="w-full bg-white py-2 px-4 flex justify-between items-start gap-2 sm:gap-4">
+			<div className="w-full py-2 px-4 flex justify-between items-start gap-2 sm:gap-4">
 				<Link to="/">
 					<img src={Logo} className="h-12 mx-6 my-4" />
 				</Link>
@@ -43,12 +43,12 @@ const Navigation = () => {
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
 						viewBox="0 0 24 24"
-						stroke-width="1.5"
+						strokeWidth="1.5"
 						stroke="currentColor"
 						className="size-6">
 						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
+							strokeLinecap="round"
+							strokeLinejoin="round"
 							d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
 						/>
 					</svg>
