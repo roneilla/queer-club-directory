@@ -69,15 +69,16 @@ const Clubs = () => {
 
 	return (
 		<>
-			<div className="bg-white">
-				<h1 className="text-3xl px-8 pb-4">Find a queer club in Toronto.</h1>
-			</div>
-			<div className={`page ${category}`}>
+			<h1 className="text-3xl px-4 md:px-8 pb-4">
+				Find a queer club in Toronto.
+			</h1>
+
+			<div className={`page`}>
 				<div className="sticky top-0 w-full">
 					<Tabs currentCategory={category} changeCategory={setCategory} />
 				</div>
 				{tags.length > 0 && (
-					<div className="w-full pb-2 px-8 lg:px-12">
+					<div className="w-full pb-2 px-4 md:px-8">
 						<button
 							className="flex gap-2 items-center"
 							onClick={() => setShowFilter(!showFilter)}>
@@ -97,13 +98,13 @@ const Clubs = () => {
 							</svg>
 						</button>
 						{showFilter && (
-							<>
+							<div className="mt-1">
 								{tags?.map((tag) => (
 									<button
 										className={`tagItem monospace ${
 											filterTags.includes(tag)
-												? 'bg-zinc-950 text-white  hover:bg-zinc-700'
-												: 'text-zinc-950'
+												? 'bg-gray-300 hover:bg-gray-400'
+												: 'bg-gray-200 hover:bg-gray-300'
 										}`}
 										onClick={() => {
 											if (filterTags.includes(tag)) {
@@ -120,7 +121,7 @@ const Clubs = () => {
 								<button className="tagClear" onClick={clearFilterTags}>
 									Clear
 								</button>
-							</>
+							</div>
 						)}
 					</div>
 				)}
@@ -192,7 +193,7 @@ const Clubs = () => {
 							/>
 						</svg>
 					</a>
-					<p>Queer Club Directory Toronto © 2024</p>
+					<p>Queer Club Directory Toronto © 2025</p>
 				</div>
 			</div>
 		</>

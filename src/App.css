@@ -4,51 +4,75 @@
 
 .body {
 	min-height: 100dvh;
-	@apply flex flex-col;
+	@apply flex flex-col text-black bg-gray-100;
 }
 
 .page {
 	@apply flex flex-col items-start flex-1;
 }
 
-.tabItem {
-	border-radius: 0.75rem 0.75rem 0 0;
-}
-
 .arts {
-	background: #ef4349;
+	@apply bg-red;
 }
 
 .entertainment {
-	background: #f19020;
+	@apply bg-orange;
 }
 
 .food {
-	background: #ffcb4c;
+	@apply bg-yellow;
 }
 
 .games {
-	background: #6caa4b;
+	@apply bg-green;
 }
 
 .party {
-	background: #55a1d8;
+	@apply bg-blue;
 }
 
 .social {
-	background: #bf6bde;
+	@apply bg-purple;
 }
 
 .sports {
-	background: #fb85c5;
+	@apply bg-pink;
 }
 
 .all {
-	background: #222;
+	@apply bg-black;
 }
 
-.tabItem.all {
-	@apply text-white;
+.border-arts {
+	@apply border-red;
+}
+
+.border-entertainment {
+	@apply border-orange;
+}
+
+.border-food {
+	@apply border-yellow;
+}
+
+.border-games {
+	@apply border-green;
+}
+
+.border-party {
+	@apply border-blue;
+}
+
+.border-social {
+	@apply border-purple;
+}
+
+.border-sports {
+	@apply border-pink;
+}
+
+.border-all {
+	@apply border-black;
 }
 
 .textButton {
@@ -111,11 +135,11 @@
 }
 
 .primaryBtn {
-	@apply bg-gray-900 text-white rounded-lg py-1 px-2 font-medium hover:bg-gray-700 flex items-center transition-all;
+	@apply bg-black text-white rounded-lg py-1 px-2 font-medium hover:bg-gray-700 flex items-center transition-all;
 }
 
 .tagItem {
-	@apply px-2 py-1 bg-gray-100 hover:bg-gray-300 capitalize rounded-full m-0.5 text-xs;
+	@apply px-2 py-1  capitalize rounded-full m-0.5 text-xs;
 }
 
 .tagClear {
@@ -123,11 +147,11 @@
 }
 
 .iconBtn {
-	@apply hover:bg-zinc-200 rounded-full p-2;
+	@apply hover:bg-gray-200 rounded-full p-2;
 }
 
 .field {
-	@apply border-zinc-200 border-solid border px-2 py-1 rounded-sm min-w-80;
+	@apply border-gray-200 border-solid border px-2 py-1 rounded-sm;
 }
 
 .fieldGroup {

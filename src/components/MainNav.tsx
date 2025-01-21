@@ -8,7 +8,7 @@ const MainNav = () => {
 			<Link to="/">
 				<h2
 					className={`text-2xl cursor-pointer ${
-						location === '/' ? 'border-zinc-950 border-b-2' : 'text-zinc-500'
+						location === '/' ? 'border-gray-950 border-b-2' : 'text-gray-500'
 					}`}>
 					Clubs
 				</h2>
@@ -17,8 +17,8 @@ const MainNav = () => {
 				<h2
 					className={`text-2xl cursor-pointer ${
 						location === '/events'
-							? 'border-zinc-950 border-b-2'
-							: 'text-zinc-500'
+							? 'border-gray-950 border-b-2'
+							: 'text-gray-500'
 					}`}>
 					Events
 				</h2>

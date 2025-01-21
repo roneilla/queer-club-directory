@@ -21,6 +21,21 @@ export type ClubTags =
 	| 'Climbing'
 	| 'Basketball';
 
+interface StringIndexedObject {
+	[key: string]: string;
+}
+
+export const categoryColors: StringIndexedObject = {
+	all: 'black',
+	arts: 'red',
+	entertainment: 'orange',
+	food: 'yellow',
+	games: 'green',
+	party: 'blue',
+	social: 'purple',
+	sports: 'pink',
+};
+
 export const directoryData = [
 	{
 		name: 'Big Gay Night Toronto',

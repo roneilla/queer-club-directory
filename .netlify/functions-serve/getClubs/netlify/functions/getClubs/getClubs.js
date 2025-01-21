@@ -2254,7 +2254,7 @@ var require_bson = __commonJS({
     };
     var checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$");
     var PROCESS_UNIQUE = null;
-    var ObjectId2 = class _ObjectId extends BSONValue {
+    var ObjectId = class _ObjectId extends BSONValue {
       get _bsontype() {
         return "ObjectId";
       }
@@ -2428,7 +2428,7 @@ var require_bson = __commonJS({
         return `new ObjectId(${inspect(this.toHexString(), options)})`;
       }
     };
-    ObjectId2.index = Math.floor(Math.random() * 16777215);
+    ObjectId.index = Math.floor(Math.random() * 16777215);
     function internalCalculateObjectSize(object, serializeFunctions, ignoreUndefined) {
       let totalLength = 4 + 1;
       if (Array.isArray(object)) {
@@ -2788,7 +2788,7 @@ var require_bson = __commonJS({
           const oid = ByteUtils.allocateUnsafe(12);
           for (let i2 = 0; i2 < 12; i2++)
             oid[i2] = buffer2[index + i2];
-          value = new ObjectId2(oid);
+          value = new ObjectId(oid);
           index = index + 12;
         } else if (elementType === BSON_DATA_INT && promoteValues === false) {
           value = new Int32(NumberUtils.getInt32LE(buffer2, index));
@@ -3031,7 +3031,7 @@ var require_bson = __commonJS({
           const oidBuffer = ByteUtils.allocateUnsafe(12);
           for (let i2 = 0; i2 < 12; i2++)
             oidBuffer[i2] = buffer2[index + i2];
-          const oid = new ObjectId2(oidBuffer);
+          const oid = new ObjectId(oidBuffer);
           index = index + 12;
           value = new DBRef(namespace, oid);
         } else {
@@ -3587,7 +3587,7 @@ var require_bson = __commonJS({
       return value != null && typeof value === "object" && "_bsontype" in value && typeof value._bsontype === "string";
     }
     var keysToCodecs = {
-      $oid: ObjectId2,
+      $oid: ObjectId,
       $binary: Binary,
       $uuid: Binary,
       $symbol: BSONSymbol,
@@ -3773,7 +3773,7 @@ var require_bson = __commonJS({
       Long: (o) => Long.fromBits(o.low != null ? o.low : o.low_, o.low != null ? o.high : o.high_, o.low != null ? o.unsigned : o.unsigned_),
       MaxKey: () => new MaxKey(),
       MinKey: () => new MinKey(),
-      ObjectId: (o) => new ObjectId2(o),
+      ObjectId: (o) => new ObjectId(o),
       BSONRegExp: (o) => new BSONRegExp(o.pattern, o.options),
       BSONSymbol: (o) => new BSONSymbol(o.value),
       Timestamp: (o) => Timestamp.fromBits(o.low, o.high)
@@ -4020,7 +4020,7 @@ var require_bson = __commonJS({
       Long,
       MaxKey,
       MinKey,
-      ObjectId: ObjectId2,
+      ObjectId,
       Timestamp,
       UUID,
       calculateObjectSize,
@@ -4050,7 +4050,7 @@ var require_bson = __commonJS({
     exports2.Long = Long;
     exports2.MaxKey = MaxKey;
     exports2.MinKey = MinKey;
-    exports2.ObjectId = ObjectId2;
+    exports2.ObjectId = ObjectId;
     exports2.Timestamp = Timestamp;
     exports2.UUID = UUID;
     exports2.calculateObjectSize = calculateObjectSize;
@@ -29620,7 +29620,7 @@ async function getConnection() {
 }
 
 // netlify/functions/getClubs/getClubs.ts
-var handler = async (event, context) => {
+var handler = async () => {
   try {
     const client = await getConnection();
     const database = client.db(process.env.MONGODB_DATABASE);

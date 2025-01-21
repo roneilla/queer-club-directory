@@ -7,24 +7,30 @@ interface TabsProps {
 
 const Tabs = ({ currentCategory, changeCategory }: TabsProps) => {
 	return (
-		<div className="w-full bg-white pt-4">
-			<div className="flex items-end overflow-scroll px-8 gap-1">
+		<div className="w-full pt-2 bg-gray-100">
+			<div className="flex items-end flex-wrap px-4 md:px-8 gap-2 pb-4">
 				{clubCategories.sort().map((item) => (
-					<h2 key={item}>
-						<button
-							className={`font-medium tabItem text-black py-1.5 px-4 capitalize cursor-pointer text-base hover:px-6 transition-all text-nowrap ${item} ${
-								item === currentCategory ? 'text-lg py-2' : ''
-							}`}
-							onClick={() => {
-								changeCategory(item);
-								window.scroll(0, 0);
-							}}>
-							{item === 'food' ? 'Food & Drink' : item}
-						</button>
-					</h2>
+					<button
+						key={item}
+						className={`${
+							item === 'all' && currentCategory === 'all'
+								? 'text-white'
+								: 'text-black'
+						} flex items-center gap-2 border border-${item} ${
+							item === currentCategory ? item : ''
+						} font-medium rounded-full py-1 px-2 capitalize cursor-pointer transition-all text-nowrap`}
+						onClick={() => {
+							changeCategory(item);
+							window.scroll(0, 0);
+						}}>
+						<div
+							className={`h-2 w-2 rounded-full ${
+								item === currentCategory ? 'bg-gray-100' : item
+							}`}></div>
+						{item === 'food' ? 'Food & Drink' : item}
+					</button>
 				))}
 			</div>
-			<div className={`w-full h-4 ${currentCategory}`} />
 		</div>
 	);
 };

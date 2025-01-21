@@ -13,7 +13,7 @@ import {
 const Layout = () => {
 	return (
 		<div className="body">
-			<div className="bg-white w-full">
+			<div className="w-full">
 				<Navigation />
 			</div>
 
@@ -22,7 +22,7 @@ const Layout = () => {
 	);
 };
 
-let router = createBrowserRouter(
+const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route path="/" element={<Layout />}>
 			<Route index element={<Clubs />} />

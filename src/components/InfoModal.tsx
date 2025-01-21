@@ -4,11 +4,9 @@ interface InfoModalProps {
 
 const InfoModal = ({ toggleModal }: InfoModalProps) => {
 	return (
-		<div
-			className="modalContainer p-4 text-zinc-950"
-			onClick={() => toggleModal(false)}>
+		<div className="modalContainer p-4" onClick={() => toggleModal(false)}>
 			<div className="modal" onClick={(e) => e.stopPropagation()}>
-				<div className="modalTitle flex justify-between items-start pb-4 border-b border-zinc-100">
+				<div className="modalTitle flex justify-between items-start pb-4 border-b border-gray-100">
 					<div>
 						<h2 className="text-lg font-medium">
 							Queer Club Directory Toronto
@@ -51,7 +49,7 @@ const InfoModal = ({ toggleModal }: InfoModalProps) => {
 				<div>
 					<a
 						id="qcdt-ig"
-						className={`gap-1 items-center  hover:bg-zinc-200 text-zinc-950 inline-flex px-1 py-0.5 rounded-full`}
+						className={`gap-1 items-center  hover:bg-gray-200 inline-flex px-1 py-0.5 rounded-full`}
 						href={`https://www.instagram.com/queerclubdirectory/`}
 						target="_blank">
 						<svg

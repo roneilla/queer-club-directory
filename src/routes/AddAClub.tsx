@@ -56,12 +56,12 @@ const AddAClub = () => {
 	};
 
 	return (
-		<div className="pb-8 bg-white px-8">
+		<div className="pb-8 px-8">
 			<h1 className="text-4xl pb-8">Add a club</h1>
 
 			<div className="flex gap-8">
 				{sent ? (
-					<div className="bg-zinc-100 px-4 py-4 rounded flex items-center gap-4">
+					<div className="px-4 py-4 rounded flex items-center gap-4">
 						<img src={TadaEmoji} className="w-24 m-4" />
 						<div>
 							<h3 className="text-xl">Thank you!</h3>
