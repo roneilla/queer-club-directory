@@ -21256,7 +21256,7 @@ var require_command_monitoring_events = __commonJS({
        * @param reply - the reply for this command from the server
        * @param started - a high resolution tuple timestamp of when the command was first sent, to calculate duration
        */
-      constructor(connection, command, reply, started, serverConnectionId) {
+      constructor(connection, command, reply2, started, serverConnectionId) {
         this.name = constants_1.COMMAND_SUCCEEDED;
         const cmd = extractCommand(command);
         const commandName = extractCommandName(cmd);
@@ -21267,7 +21267,7 @@ var require_command_monitoring_events = __commonJS({
         this.requestId = command.requestId;
         this.commandName = commandName;
         this.duration = (0, utils_1.calculateDurationInMs)(started);
-        this.reply = maybeRedact(commandName, cmd, extractReply(command, reply));
+        this.reply = maybeRedact(commandName, cmd, extractReply(command, reply2));
         this.serverConnectionId = serverConnectionId;
       }
       /* @internal */
@@ -21398,24 +21398,24 @@ var require_command_monitoring_events = __commonJS({
       }
       return command.query ? clonedQuery : clonedCommand;
     }
-    function extractReply(command, reply) {
-      if (!reply) {
-        return reply;
+    function extractReply(command, reply2) {
+      if (!reply2) {
+        return reply2;
       }
       if (command instanceof commands_1.OpMsgRequest) {
-        return (0, utils_1.deepCopy)(reply.result ? reply.result : reply);
+        return (0, utils_1.deepCopy)(reply2.result ? reply2.result : reply2);
       }
       if (command.query && command.query.$query != null) {
         return {
           ok: 1,
           cursor: {
-            id: (0, utils_1.deepCopy)(reply.cursorId),
+            id: (0, utils_1.deepCopy)(reply2.cursorId),
             ns: namespace(command),
-            firstBatch: (0, utils_1.deepCopy)(reply.documents)
+            firstBatch: (0, utils_1.deepCopy)(reply2.documents)
           }
         };
       }
-      return (0, utils_1.deepCopy)(reply.result ? reply.result : reply);
+      return (0, utils_1.deepCopy)(reply2.result ? reply2.result : reply2);
     }
     function extractConnectionDetails(connection) {
       let connectionId;
@@ -21849,8 +21849,8 @@ var require_connection = __commonJS({
       exhaustCommand(ns, command, options, replyListener) {
         const exhaustLoop = async () => {
           this.throwIfAborted();
-          for await (const reply of this.sendCommand(ns, command, options)) {
-            replyListener(void 0, reply);
+          for await (const reply2 of this.sendCommand(ns, command, options)) {
+            replyListener(void 0, reply2);
             this.throwIfAborted();
           }
           throw new error_1.MongoUnexpectedServerResponseError("Server ended moreToCome unexpectedly");
@@ -22375,11 +22375,11 @@ var require_events = __commonJS({
     exports2.ServerHeartbeatStartedEvent = ServerHeartbeatStartedEvent;
     var ServerHeartbeatSucceededEvent = class {
       /** @internal */
-      constructor(connectionId, duration, reply, awaited) {
+      constructor(connectionId, duration, reply2, awaited) {
         this.name = constants_1.SERVER_HEARTBEAT_SUCCEEDED;
         this.connectionId = connectionId;
         this.duration = duration;
-        this.reply = reply ?? {};
+        this.reply = reply2 ?? {};
         this.awaited = awaited;
       }
     };
@@ -29607,6 +29607,56 @@ __export(addAClub_exports, {
 });
 module.exports = __toCommonJS(addAClub_exports);
 
+// lib/adminAuth.ts
+var import_node_crypto = require("crypto");
+function adminAuth(headers) {
+  const key = process.env.ADMIN_ACCESS_KEY;
+  if (!key || key.length < 43)
+    return { statusCode: 503, error: "Admin access is not configured." };
+  const authorization = headers.authorization || headers.Authorization || "";
+  const supplied = authorization.startsWith("Bearer ") ? authorization.slice(7) : "";
+  const hash = (value) => (0, import_node_crypto.createHash)("sha256").update(value).digest();
+  if (!supplied || !(0, import_node_crypto.timingSafeEqual)(hash(supplied), hash(key))) {
+    return { statusCode: 401, error: "Invalid admin access key." };
+  }
+  return null;
+}
+
+// lib/clubValidation.ts
+var categories = ["entertainment", "sports", "arts", "social", "food", "games", "party"];
+function validateClub(input, requireDescription = true) {
+  const limits = { name: 200, description: 3e3, instagram: 2e3, website: 2e3, category: 30, location: 300, schedule: 500 };
+  const club = {};
+  for (const [field, limit] of Object.entries(limits)) {
+    const value = input[field] ?? "";
+    if (typeof value !== "string" || value.length > limit)
+      throw new Error(`Invalid ${field}.`);
+    club[field] = value.trim();
+  }
+  if (!club.name)
+    throw new Error("Enter the club name.");
+  if (requireDescription && !club.description)
+    throw new Error("Enter a description before approving or submitting this club.");
+  if (!categories.includes(club.category))
+    throw new Error("Select a category before approving or submitting this club.");
+  club.instagram = club.instagram.replace(/^@/, "").trim();
+  club.instagram = club.instagram.toLowerCase();
+  if (!club.instagram && !club.website)
+    throw new Error("Enter an Instagram handle or a website. You can provide both.");
+  if (club.instagram && !/^[a-z0-9._]{1,30}$/.test(club.instagram))
+    throw new Error("Enter an Instagram handle (up to 30 characters), not a URL.");
+  if (club.website) {
+    try {
+      const url = new URL(club.website);
+      if (!["https:", "http:"].includes(url.protocol))
+        throw new Error();
+    } catch {
+      throw new Error("Website must be a valid https:// or http:// URL.");
+    }
+  }
+  return club;
+}
+
 // lib/index.js
 var import_mongodb = __toESM(require_lib3(), 1);
 var uri = process.env.MONGODB_URI;
@@ -29619,27 +29669,58 @@ async function getConnection() {
   return db;
 }
 
-// netlify/functions/addAClub/addAClub.ts
-var handler = async (event, context) => {
+// lib/createClubHandler.ts
+var reply = (statusCode, body) => ({
+  statusCode,
+  headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+  body: JSON.stringify(body)
+});
+var createClubHandler = (admin) => async (event) => {
+  if (!(admin ? ["GET", "POST"] : ["POST"]).includes(event.httpMethod)) {
+    return { ...reply(405, { error: "Method not allowed." }), headers: { ...reply(405, {}).headers, Allow: admin ? "GET, POST" : "POST" } };
+  }
+  if (admin) {
+    const failure = adminAuth(event.headers);
+    if (failure)
+      return reply(failure.statusCode, { error: failure.error });
+    if (event.httpMethod === "GET")
+      return reply(200, { authenticated: true });
+  }
+  if (!event.headers["content-type"]?.toLowerCase().startsWith("application/json")) {
+    return reply(415, { error: "Expected application/json." });
+  }
+  if (!event.body || event.body.length > 2e4)
+    return reply(400, { error: "Invalid request size." });
+  let input;
+  try {
+    input = JSON.parse(event.body);
+  } catch {
+    return reply(400, { error: "Invalid JSON." });
+  }
+  if (!input || typeof input !== "object" || Array.isArray(input))
+    return reply(400, { error: "Expected a club object." });
+  let club;
+  try {
+    club = validateClub(input);
+  } catch (error) {
+    return reply(400, { error: error.message });
+  }
   try {
     const client = await getConnection();
-    const database = client.db(process.env.MONGODB_DATABASE);
-    const collection = database.collection("clubSubmissions");
-    const { body } = event;
-    const club = JSON.parse(body || "");
-    const result = await collection.insertOne(club);
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ ...club, _id: result.insertedId })
-    };
-  } catch (error) {
-    console.error("Error connecting to MongoDB Atlas", error);
-    return {
-      statusCode: 500,
-      body: "Internal Server Error"
-    };
+    const result = await client.db(process.env.MONGODB_DATABASE).collection(admin ? "clubs" : "clubSubmissions").insertOne({
+      ...club,
+      ...admin ? { dateAdded: (/* @__PURE__ */ new Date()).toISOString(), updatedAt: (/* @__PURE__ */ new Date()).toISOString() } : { status: "submitted" },
+      subcategories: [],
+      dateSubmitted: (/* @__PURE__ */ new Date()).toISOString().slice(0, 10)
+    });
+    return reply(201, { _id: result.insertedId });
+  } catch {
+    return reply(500, { error: "Could not save the club. Please try again." });
   }
 };
+
+// netlify/functions/addAClub/addAClub.ts
+var handler = createClubHandler(false);
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   handler

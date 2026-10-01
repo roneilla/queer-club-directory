@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import ContactModal from './ContactModal';
 import InfoModal from './InfoModal';
 import Logo from '../assets/logo.png';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navigation = () => {
+	const [showContact, setShowContact] = useState(false);
 	const [showInfo, setShowInfo] = useState(false);
 	const [openMenu, setOpenMenu] = useState(false);
 	const location = useLocation().pathname;
@@ -18,27 +20,21 @@ const Navigation = () => {
 				<Link to="/">
 					<img src={Logo} className="h-12 mx-6 my-4" />
 				</Link>
-				<div className="hidden sm:flex gap-4 items-center">
+				<div className="hidden lg:flex gap-4 items-center">
 					<Link to="/" className="navItem">
 						Directory
 					</Link>
+					{/* <Link to="/events" className="navItem">Events</Link> */}
 					<button
 						className="navItem"
 						onClick={() => setShowInfo(true)}
 						id="infoModal">
 						Info
 					</button>
-					<a
-						href="mailto:queerclubdirectory@gmail.com"
-						target="_blank"
-						className="navItem">
-						Contact us
-					</a>
-					<Link to="add" className="navItem">
-						Add a club
-					</Link>
+					<button className="navItem" onClick={() => { setOpenMenu(false); setShowContact(true); }}>Contact us</button>
+					<Link to="/add" className="navItem">Add a club</Link>
 				</div>
-				<button className="iconBtn sm:hidden" onClick={() => setOpenMenu(true)}>
+				<button className="iconBtn lg:hidden" onClick={() => setOpenMenu(true)}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -80,24 +76,19 @@ const Navigation = () => {
 						<Link to="/" className="navItem">
 							Directory
 						</Link>
+						<Link to="/events" className="navItem">Events</Link>
 						<button
 							className="navItem"
 							onClick={() => setShowInfo(true)}
 							id="infoModal">
 							Info
 						</button>
-						<a
-							href="mailto:queerclubdirectory@gmail.com"
-							target="_blank"
-							className="navItem">
-							Contact us
-						</a>
-						<Link to="add" className="navItem">
-							Add a club
-						</Link>
+						<button className="navItem" onClick={() => { setOpenMenu(false); setShowContact(true); }}>Contact us</button>
+						<Link to="/add" className="navItem">Submit a club</Link>
 					</div>
 				</div>
 			)}
+			{showContact && <ContactModal close={() => setShowContact(false)} />}
 			{showInfo && <InfoModal toggleModal={setShowInfo} />}
 		</>
 	);

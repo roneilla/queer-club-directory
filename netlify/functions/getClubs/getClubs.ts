@@ -7,10 +7,11 @@ export const handler: Handler = async () => {
 		const database = client.db(process.env.MONGODB_DATABASE);
 		const collection = database.collection('clubs');
 
-		const data = await collection.find().toArray();
+		const data = await collection.find({ archived: { $ne: true } }).toArray();
 
 		return {
 			statusCode: 200,
+            headers: { 'Cache-Control': 'no-store' },
 			body: JSON.stringify(data),
 		};
 	} catch (error) {

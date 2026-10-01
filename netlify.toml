@@ -1,0 +1,33 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "https://queerclubdirectory.org/admin"
+  to = "https://admin.queerclubdirectory.org/submissions"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "https://queerclubdirectory.org/admin/*"
+  to = "https://admin.queerclubdirectory.org/:splat"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "https://www.queerclubdirectory.org/admin"
+  to = "https://admin.queerclubdirectory.org/submissions"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "https://www.queerclubdirectory.org/admin/*"
+  to = "https://admin.queerclubdirectory.org/:splat"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -14,7 +14,7 @@ const InfoModal = ({ toggleModal }: InfoModalProps) => {
 						<p className="pt-1">
 							Created by{' '}
 							<a
-								className="text-purple-600 hover:text-purple-800"
+								className="text-purple-600 hover:text-purple-800 underline"
 								href="https://www.roneilla.com"
 								target="_blank">
 								Roneilla Bumanlag
@@ -72,7 +72,7 @@ const InfoModal = ({ toggleModal }: InfoModalProps) => {
 				<p>
 					Reach me at{' '}
 					<a
-						className="text-purple-600	hover:text-purple-800"
+						className="text-purple-600	hover:text-purple-800 underline"
 						href="mailto:queerclubdirectory@gmail.com"
 						target="_blank">
 						queerclubdirectory@gmail.com
