@@ -21,7 +21,6 @@ const Tabs = ({ currentCategory, changeCategory }: TabsProps) => {
 						} font-medium rounded-full py-1 px-2 capitalize cursor-pointer transition-all text-nowrap`}
 						onClick={() => {
 							changeCategory(item);
-							window.scroll(0, 0);
 						}}>
 						<div
 							className={`h-2 w-2 rounded-full ${
