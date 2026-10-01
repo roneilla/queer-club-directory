@@ -76,7 +76,7 @@ const Navigation = () => {
 						<Link to="/" className="navItem">
 							Directory
 						</Link>
-						<Link to="/events" className="navItem">Events</Link>
+						{/* <Link to="/events" className="navItem">Events</Link> */}
 						<button
 							className="navItem"
 							onClick={() => setShowInfo(true)}
